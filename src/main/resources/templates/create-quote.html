@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Quote</title>
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 40px;
+            background-color: white;
+            color: #333;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Create a new quote</h1>
+    <form th:action="@{/create}" th:object="${quotePair}" method="post">
+
+        <h2>English:</h2>
+        <label>Quote Text:</label>
+        <input type="text" th:field="*{enText}" required/>
+
+        <label>Author:</label>
+        <input type="text" th:field="*{enAuthor}" required/>
+
+        <label>Category:</label>
+        <input type="text" th:field="*{enCategory}" required/>
+
+
+        <h2>Українською:</h2>
+        <label>Текст цитати:</label>
+        <input type="text" th:field="*{uaText}" required/>
+
+        <label>Автор:</label>
+        <input type="text" th:field="*{uaAuthor}" required/>
+
+        <label>Категорія:</label>
+        <input type="text" th:field="*{uaCategory}" required/>
+
+        <button type="submit">Save Quote</button>
+    </form>
+</body>
+</html>

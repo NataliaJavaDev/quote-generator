@@ -25,10 +25,4 @@ public class QuoteController {
     public List<Quote> getAllQuotes(@PathVariable Languages language) {
         return quoteService.getAllQuotesByLanguages(language);
     }
-
-    @PostMapping
-    public Quote createQuote(@PathVariable Languages language, @RequestBody Quote quote) {
-        quote.setLanguage(language.name().toLowerCase());
-        return quoteService.createQuote(quote);
-    }
 }

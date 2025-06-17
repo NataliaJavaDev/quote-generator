@@ -1,16 +1,15 @@
 package com.quotegenerator.model;
 
+import lombok.Getter;
+
+@Getter
 public enum Languages {
     EN("English"),
     UA("Українська");
 
-    public final String changeLanguage;
+    public final String language;
 
-    Languages(String changeLanguage) {
-        this.changeLanguage = changeLanguage;
-    }
-
-    public String getChangeLanguage() {
-        return changeLanguage;
+    Languages(String language) {
+        this.language = language;
     }
 }
