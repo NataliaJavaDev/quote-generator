@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 
 @Controller
 public class ViewController {
@@ -34,6 +36,14 @@ public class ViewController {
                 language
         );
         return "index";
+    }
+
+    @GetMapping("/{language}/all_quotes")
+    public String showAllQuotes(@PathVariable Languages language, Model model) {
+        List<Quote> quotes = quoteService.getAllQuotesByLanguages(language);
+        model.addAttribute("quotes", quotes);
+        model.addAttribute("language", language);
+        return "show-quotes";
     }
 
     @GetMapping("/create")
@@ -63,7 +73,7 @@ public class ViewController {
         uaQuote.setAuthor(quotePair.getUaAuthor());
         uaQuote.setCategory(quotePair.getUaCategory());
 
-        enQuote.setLanguage("UA");
+        uaQuote.setLanguage("UA");
 
         quoteService.createQuote(enQuote);
         quoteService.createQuote(uaQuote);

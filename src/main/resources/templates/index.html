@@ -46,5 +46,8 @@
             <footer th:text="${quote.author}">Author</footer>
         </blockquote>
     </div>
+
+    <a href="/all_quotes" th:text="${language.name() == 'UA'} ? 'Усі цитати' : 'All quotes'">All quotes</a>
+
 </body>
 </html>
