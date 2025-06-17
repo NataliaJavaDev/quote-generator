@@ -23,4 +23,5 @@ public class Quote {
     private String text;
     private String author;
     private String category;
+    private String lang;
 }

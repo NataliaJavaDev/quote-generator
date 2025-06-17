@@ -1,5 +1,6 @@
 package com.quotegenerator.controller;
 
+import com.quotegenerator.model.Languages;
 import com.quotegenerator.model.Quote;
 import com.quotegenerator.service.QuoteService;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/quotes")
+@RequestMapping("/{language}/quotes")
 public class QuoteController {
     private final QuoteService quoteService;
 
@@ -16,17 +17,18 @@ public class QuoteController {
     }
 
     @GetMapping("/random")
-    public Quote getRandomQuote() {
-        return quoteService.getRandomQuote();
+    public Quote getRandomQuote(@PathVariable Languages language) {
+        return quoteService.getRandomQuote(language);
     }
 
     @GetMapping("/all_quotes")
-    public List<Quote> getAllQuotes() {
-        return quoteService.getAllQuotes();
+    public List<Quote> getAllQuotes(@PathVariable Languages language) {
+        return quoteService.getAllQuotesByLanguages(language);
     }
 
     @PostMapping
-    public Quote createQuote(@RequestBody Quote quote) {
+    public Quote createQuote(@PathVariable Languages language, @RequestBody Quote quote) {
+        quote.setLang(language.name().toLowerCase());
         return quoteService.createQuote(quote);
     }
 }

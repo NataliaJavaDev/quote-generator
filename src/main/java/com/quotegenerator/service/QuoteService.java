@@ -1,5 +1,6 @@
 package com.quotegenerator.service;
 
+import com.quotegenerator.model.Languages;
 import com.quotegenerator.model.Quote;
 import com.quotegenerator.repository.QuoteRepository;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,12 @@ public class QuoteService {
         this.quoteRepository = quoteRepository;
     }
 
-    public Quote getRandomQuote() {
-        return quoteRepository.findRandomQuote();
+    public Quote getRandomQuote(Languages language) {
+        return quoteRepository.findRandomQuoteByLang(language.name().toLowerCase());
     }
 
-    public List<Quote> getAllQuotes() {
-        return quoteRepository.findAll();
+    public List<Quote> getAllQuotesByLanguages(Languages language) {
+        return quoteRepository.findAllByLanguage(language.name().toLowerCase());
     }
 
     public Quote createQuote(Quote quote) {
