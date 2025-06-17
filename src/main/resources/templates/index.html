@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Generator</title>
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 40px;
+            background-color: white;
+            color: green;
+        }
+        blockquote {
+            font-size: 1.5em;
+            font-style: italic;
+            margin: 20px 0;
+            padding-left: 20px;
+            border-left: 5px solid #ccc;
+        }
+        footer {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #666;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 5px 10px;
+            margin-right: 10px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1 th:text="${language.name() == 'UA'} ? 'Генератор цитат' : 'Quote Generator'">Quote Generator</h1>
+
+    <form method="get" action="/">
+        <button type="submit"
+                th:text="${language.name() == 'UA'} ? 'Згенерувати' : 'Generate'">Generate</button>
+    </form>
+
+    <div th:if="${quote != null}">
+        <blockquote>
+            <p th:text="${quote.text}">Quote text</p>
+            <footer th:text="${quote.author}">Author</footer>
+        </blockquote>
+    </div>
+</body>
+</html>
