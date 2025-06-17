@@ -15,6 +15,6 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
     List<Quote> findAllByLanguage(String lang);
 
     // Випадкова цитата певною мовою
-    @Query(value = "SELECT * FROM quote WHERE lang = ?1 ORDER BY RAND() LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM quote WHERE language = ?1 ORDER BY RAND() LIMIT 1", nativeQuery = true)
     Quote findRandomQuoteByLang(String lang);
 }

@@ -28,7 +28,7 @@ public class QuoteController {
 
     @PostMapping
     public Quote createQuote(@PathVariable Languages language, @RequestBody Quote quote) {
-        quote.setLang(language.name().toLowerCase());
+        quote.setLanguage(language.name().toLowerCase());
         return quoteService.createQuote(quote);
     }
 }

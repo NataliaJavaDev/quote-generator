@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Language</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        select, button {
+            font-size: 1.2em;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Select Language</h1>
+<h2>Оберіть мову / Select language:</h2>
+
+<form id="languageForm">
+    <select name="language" id="language-select">
+        <option value="EN">English</option>
+        <option value="UA">Українська</option>
+    </select>
+    <button type="submit">OK</button>
+</form>
+
+<script>
+    document.getElementById('languageForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const lang = document.getElementById('language-select').value.toUpperCase();
+        window.location.href = '/' + lang;
+    });
+</script>
+</body>
+</html>
