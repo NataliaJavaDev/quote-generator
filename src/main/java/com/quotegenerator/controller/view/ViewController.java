@@ -24,6 +24,12 @@ public class ViewController {
             return "select-language";
     }
 
+    @GetMapping("/{language}/quotes")
+    public String welcomePage(@PathVariable Languages language, Model model) {
+        model.addAttribute("language", language);
+        return "index";
+    }
+
     @GetMapping("/{language}/quotes/random")
     public String index(@PathVariable Languages language, Model model) {
         Quote quote = quoteService.getRandomQuote(language);
@@ -52,7 +58,7 @@ public class ViewController {
 
         quoteService.createQuote(quote);
         model.addAttribute("quote", quote);
-        model.addAttribute("language", language);
+        //model.addAttribute("language", language);
 
         return "index";
     }

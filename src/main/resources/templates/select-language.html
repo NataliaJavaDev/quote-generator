@@ -20,8 +20,7 @@
     </style>
 </head>
 <body>
-<h1>Select Language</h1>
-<h2>Оберіть мову / Select language:</h2>
+<h1>Оберіть мову / Select language:</h1>
 
 <form id="languageForm">
     <select name="language" id="language-select">
@@ -35,7 +34,7 @@
     document.getElementById('languageForm').addEventListener('submit', function (event) {
         event.preventDefault();
         const lang = document.getElementById('language-select').value.toUpperCase();
-        window.location.href = '/view/' + lang + '/quotes/random';
+        window.location.href = '/view/' + lang + '/quotes';
     });
 </script>
 </body>

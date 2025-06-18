@@ -10,7 +10,8 @@
     </style>
 </head>
 <body>
-<h1>All Quotes</h1>
+<h1 th:text="${language != null and language.name() == 'UA'} ?
+'Усі цитати' : 'All quotes'">All quotes</h1>
 
 <div th:if="${quotes != null and !quotes.isEmpty()}">
     <div th:each="quote : ${quotes}">
@@ -25,6 +26,9 @@
     <p>No quotes found.</p>
 </div>
 
-<a href="/" style="display:inline-block;margin-top:20px;">← Back to Generator</a>
+<a th:href="@{/view/{language}/quotes(language=${language})}"
+   style="display:inline-block;margin-top:20px;"
+   th:text="${language != null and language.name() == 'UA'} ?
+    '← Назад до генератора цитат' : '← Back to Generator'">← Back to Generator</a>
 </body>
 </html>
