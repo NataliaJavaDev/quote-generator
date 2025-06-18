@@ -16,11 +16,11 @@ public class QuoteService {
     }
 
     public Quote getRandomQuote(Languages language) {
-        return quoteRepository.findRandomQuoteByLang(language.name().toLowerCase());
+        return quoteRepository.findRandomQuoteByLang(language.name());
     }
 
     public List<Quote> getAllQuotesByLanguages(Languages language) {
-        return quoteRepository.findAllByLanguage(language.name().toLowerCase());
+        return quoteRepository.findAllByLanguage(language.name());
     }
 
     public Quote createQuote(Quote quote) {

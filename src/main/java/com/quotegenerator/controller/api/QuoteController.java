@@ -1,4 +1,4 @@
-package com.quotegenerator.controller;
+package com.quotegenerator.controller.api;
 
 import com.quotegenerator.model.Languages;
 import com.quotegenerator.model.Quote;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/{language}/quotes")
+@RequestMapping("/api/{language}/quotes")
 public class QuoteController {
     private final QuoteService quoteService;
 

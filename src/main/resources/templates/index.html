@@ -35,7 +35,7 @@
 <body>
     <h1 th:text="${language != null and language.name() == 'UA'} ? 'Генератор цитат' : 'Quote Generator'">Quote Generator</h1>
 
-    <form method="get" action="/">
+    <form method="get" action="/quotes/random">
         <button type="submit"
                 th:text="${language != null and language.name() == 'UA'} ? 'Згенерувати' : 'Generate'">Generate</button>
     </form>
@@ -47,7 +47,9 @@
         </blockquote>
     </div>
 
-    <a href="/all_quotes" th:text="${language.name() == 'UA'} ? 'Усі цитати' : 'All quotes'">All quotes</a>
+
+
+    <a href="${language}/quotes/all_quotes" th:text="${language.name() == 'UA'} ? 'Усі цитати' : 'All quotes'">All quotes</a>
 
 </body>
 </html>

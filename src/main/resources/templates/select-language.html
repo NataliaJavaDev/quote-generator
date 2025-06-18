@@ -35,7 +35,7 @@
     document.getElementById('languageForm').addEventListener('submit', function (event) {
         event.preventDefault();
         const lang = document.getElementById('language-select').value.toUpperCase();
-        window.location.href = '/' + lang;
+        window.location.href = '/view/' + lang + '/quotes/random';
     });
 </script>
 </body>
