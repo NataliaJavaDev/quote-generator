@@ -8,7 +8,7 @@
     <body>
         <div th:class="workshopAll">
             <h1 th:text="${language != null and language.name() == 'UA'} ?
-            'Усі цитати' : 'All quotes'">All quotes</h1>
+            'Усі цитати' : 'All quotes'"></h1>
 
             <div th:if="${quotes != null and !quotes.isEmpty()}"
                  th:class="all-quotes">
@@ -30,7 +30,6 @@
                             page=${currentPage - 1})}"
                     th:text="${language.name() == 'UA'} ? '← Попередня' : '← Previous'">
                 </a>
-
                 <a th:if="${currentPage + 1 < totalPages}"
                    th:href="@{/view/{language}/quotes/all_quotes(language=${language},
                             page=${currentPage + 1})}"

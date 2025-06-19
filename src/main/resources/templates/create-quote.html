@@ -10,7 +10,6 @@
 
             <h1 th:text="${language != null and language.name() == 'UA'} ?
             'Створення нової цитати' : 'Create a new quote'">
-                Create a new quote
             </h1>
 
             <div th:class="form">
@@ -24,25 +23,21 @@
 
                     <label th:text="${language != null and language.name() == 'UA'} ?
                     'Текст цитати:' : 'Quote text:'">
-                        Quote text:
                     </label>
                     <input type="text" th:field="*{text}" required/>
 
                     <label th:text="${language != null and language.name() == 'UA'} ?
                     'Автор:' : 'Author:'">
-                        Author:
                     </label>
                     <input type="text" th:field="*{author}" required/>
 
                     <label th:text="${language != null and language.name() == 'UA'} ?
                     'Категорія:' : 'Category:'">
-                        Category:
                     </label>
                     <input type="text" th:field="*{category}" required/>
 
                     <button type="submit" th:text="${language != null and language.name() == 'UA'} ?
                     'Зберегти' : 'Save'">
-                        Save quote
                     </button>
                 </form>
             </div>

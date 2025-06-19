@@ -8,15 +8,14 @@
     <body>
         <div th:class="workshop">
             <h1>Оберіть мову / Select language:</h1>
-                <div th:class="form">
-                    <form id="languageForm" th:class="start-form">
-                        <select name="language" id="language-select">
-                            <option value="EN">English</option>
-                            <option value="UA">Українська</option>
-                        </select>
-                        <button type="submit">OK</button>
-                    </form>
-                </div>
+            <div th:class="form">
+                <form id="languageForm" th:class="start-form">
+                    <select name="language" id="language-select">
+                        <option value="EN">English</option>
+                        <option value="UA">Українська</option>
+                    </select>
+                    <button type="submit">OK</button></form>
+            </div>
         </div>
         <script>
             document.getElementById('languageForm').addEventListener('submit', function (event) {
