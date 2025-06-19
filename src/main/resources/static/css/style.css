@@ -19,13 +19,16 @@ body {
     }
     .button-href {
         display: inline-block;
-        margin: 0 225px;
+        margin: 0 220px;
     }
     a {
         background-color: #f0f0f0;
         color: blueviolet;
         border: 1px solid blueviolet;
         border-radius: 4px;
+        padding: 8px 12px;
+        font-size: 1em;
+        text-decoration: none;
     }
     .start-form {
         margin: 130px auto;
@@ -50,38 +53,31 @@ blockquote {
 .form {
     display: block;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 40px auto;
 
-    input, select, button {
+    select, button {
         width: 100%;
         padding: 8px;
         margin-top: 5px;
+        font-size: 1.2em;
+    }
+    input {
+        width: 376px;
+        padding: 10px;
+        margin-top: 5px;
     }
     button {
+        margin-top: 15px;
         display: inline-block;
         text-align: center;
     }
 }
-select, button, a {
-    padding: 8px 12px;
-    font-size: 1em;
-    text-decoration: none;
-}
-/*a {
-    background-color: #f0f0f0;
-    color: blueviolet;
-    border: 1px solid blueviolet;
-    border-radius: 4px;
-}*/
+
 label {
     display: block;
     margin-top: 10px;
 }
-input, select, button {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-}
+
 button {
     position: relative;
     margin-top: 15px;
@@ -90,7 +86,4 @@ button {
     color: white;
     border: none;
 }
-select, button {
-    font-size: 1.2em;
-    padding: 5px 10px;
-}
+
