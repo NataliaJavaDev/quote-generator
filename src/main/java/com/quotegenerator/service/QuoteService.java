@@ -3,6 +3,9 @@ package com.quotegenerator.service;
 import com.quotegenerator.model.Languages;
 import com.quotegenerator.model.Quote;
 import com.quotegenerator.repository.QuoteRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +28,10 @@ public class QuoteService {
 
     public Quote createQuote(Quote quote) {
         return quoteRepository.save(quote);
+    }
+
+    public Page<Quote> getAllQuotesByLanguagePaginated(String language, int page, int pageSize) {
+        Pageable pageable = PageRequest.of(page, pageSize);
+        return quoteRepository.findByLanguage(language, pageable);
     }
 }

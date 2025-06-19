@@ -24,6 +24,18 @@
                 <p>No quotes found.</p>
             </div>
 
+            <div th:class="button-href">
+                <a th:if="${currentPage > 0}"
+                   th:href="@{/view/{language}/quotes/all_quotes(language=${language}, page=${currentPage - 1})}">
+                    ← <span th:text="${language.name() == 'UA'} ? 'Попередня' : 'Previous'">Previous</span>
+                </a>
+
+                <a th:if="${currentPage + 1 < totalPages}"
+                   th:href="@{/view/{language}/quotes/all_quotes(language=${language}, page=${currentPage + 1})}">
+                    <span th:text="${language.name() == 'UA'} ? 'Наступна' : 'Next'">Next</span> →
+                </a>
+            </div>
+
             <div th:class="button-href-back">
                 <a th:href="@{/view/{language}/quotes(language=${language})}"
                    th:text="${language != null and language.name() == 'UA'} ?

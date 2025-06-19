@@ -3,6 +3,7 @@ package com.quotegenerator.controller.view;
 import com.quotegenerator.model.Languages;
 import com.quotegenerator.model.Quote;
 import com.quotegenerator.service.QuoteService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
@@ -39,10 +40,20 @@ public class ViewController {
     }
 
     @GetMapping("/{language}/quotes/all_quotes")
-    public String showAllQuotes(@PathVariable Languages language, Model model) {
-        List<Quote> quotes = quoteService.getAllQuotesByLanguages(language);
-        model.addAttribute("quotes", quotes);
+    public String showAllQuotesPaginated(
+            @PathVariable Languages language,
+            @RequestParam(defaultValue = "0") int page,
+            Model model) {
+
+        int pageSize = 2;
+
+        Page<Quote> quotesPage = quoteService.getAllQuotesByLanguagePaginated(language.name(), page, pageSize);
+
+        model.addAttribute("quotes", quotesPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", quotesPage.getTotalPages());
         model.addAttribute("language", language);
+
         return "show-quotes";
     }
 
