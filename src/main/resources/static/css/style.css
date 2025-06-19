@@ -1,0 +1,85 @@
+body {
+    vertical-align: center;
+    background-color: grey;
+    font-family: Roboto, sans-serif;
+    color: black;
+}
+.workshop {
+    display: block;
+    vertical-align: center;
+    margin: 50px auto;
+    width: 700px;
+    height: 500px;
+    background-color: white;
+
+    h1 {
+        padding-top: 20px;
+        text-align: center;
+        font-size: 2em;
+    }
+    button {
+
+    }
+}
+
+blockquote {
+    border-left: 4px solid #ccc;
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 50px 20px;
+    padding-left: 20px;
+    footer {
+        margin-top: 10px;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: #666;
+    }
+}
+
+.form {
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+
+    input, select, button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+    }
+    button {
+        display: inline-block;
+        text-align: center;
+    }
+}
+select, button, a {
+    padding: 8px 12px;
+    font-size: 1em;
+    text-decoration: none;
+}
+a {
+    background-color: #f0f0f0;
+    color: blueviolet;
+    border: 1px solid blueviolet;
+    border-radius: 4px;
+}
+label {
+    display: block;
+    margin-top: 10px;
+}
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+button {
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+}
+select, button {
+    font-size: 1.2em;
+    padding: 5px 10px;
+}

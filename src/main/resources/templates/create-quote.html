@@ -1,72 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Add a Quote</title>
-    <style>
-        body {
-            font-family: Roboto, sans-serif;
-            margin: 40px;
-            background-color: white;
-            color: #333;
-        }
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-        button {
-            margin-top: 15px;
-            background-color: green;
-            color: white;
-            border: none;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add a Quote</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+        <div th:class="workshop">
 
-    <h1 th:text="${language != null and language.name() == 'UA'} ?
-    'Створення нової цитати' : 'Create a new quote'">
-        Create a new quote
-    </h1>
-    <form th:action="@{/view/{language}/quotes/create(language=${language})}"
-          th:object="${quote}" method="post">
+            <h1 th:text="${language != null and language.name() == 'UA'} ?
+            'Створення нової цитати' : 'Create a new quote'">
+                Create a new quote
+            </h1>
 
-        <select th:field="*{language}" id="language-select">
-            <option th:value="EN">English</option>
-            <option th:value="UA">Українська</option>
-        </select>
+            <div th:class="form">
+                <form th:action="@{/view/{language}/quotes/create(language=${language})}"
+                      th:object="${quote}" method="post">
 
-        <label th:text="${language != null and language.name() == 'UA'} ?
-        'Текст цитати:' : 'Quote text:'">
-            Quote text:
-        </label>
-        <input type="text" th:field="*{text}" required/>
+                    <select th:field="*{language}" id="language-select">
+                        <option th:value="EN">English</option>
+                        <option th:value="UA">Українська</option>
+                    </select>
 
-        <label th:text="${language != null and language.name() == 'UA'} ?
-        'Автор:' : 'Author:'">
-            Author:
-        </label>
-        <input type="text" th:field="*{author}" required/>
+                    <label th:text="${language != null and language.name() == 'UA'} ?
+                    'Текст цитати:' : 'Quote text:'">
+                        Quote text:
+                    </label>
+                    <input type="text" th:field="*{text}" required/>
 
-        <label th:text="${language != null and language.name() == 'UA'} ?
-        'Категорія:' : 'Category:'">
-            Category:
-        </label>
-        <input type="text" th:field="*{category}" required/>
+                    <label th:text="${language != null and language.name() == 'UA'} ?
+                    'Автор:' : 'Author:'">
+                        Author:
+                    </label>
+                    <input type="text" th:field="*{author}" required/>
 
-        <button type="submit" th:text="${language != null and language.name() == 'UA'} ?
-        'Зберегти' : 'Save'">
-            Save quote
-        </button>
-    </form>
-</body>
+                    <label th:text="${language != null and language.name() == 'UA'} ?
+                    'Категорія:' : 'Category:'">
+                        Category:
+                    </label>
+                    <input type="text" th:field="*{category}" required/>
+
+                    <button type="submit" th:text="${language != null and language.name() == 'UA'} ?
+                    'Зберегти' : 'Save'">
+                        Save quote
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

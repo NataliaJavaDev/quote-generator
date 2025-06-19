@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>All Quotes</title>
-    <style>
-        body { font-family: sans-serif; padding: 20px; }
-        blockquote { border-left: 4px solid #ccc; margin: 20px 0; padding-left: 15px; }
-        footer { font-size: 0.9em; color: #666; }
-    </style>
-</head>
-<body>
-<h1 th:text="${language != null and language.name() == 'UA'} ?
-'Усі цитати' : 'All quotes'">All quotes</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>All Quotes</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+        <div th:class="workshop">
+            <h1 th:text="${language != null and language.name() == 'UA'} ?
+            'Усі цитати' : 'All quotes'">All quotes</h1>
 
-<div th:if="${quotes != null and !quotes.isEmpty()}">
-    <div th:each="quote : ${quotes}">
-        <blockquote>
-            <p th:text="${quote.text}">Quote text</p>
-            <footer th:text="${quote.author}">Author</footer>
-        </blockquote>
-    </div>
-</div>
+            <div th:if="${quotes != null and !quotes.isEmpty()}">
+                <div th:each="quote : ${quotes}">
+                    <blockquote>
+                        <p th:text="${quote.text}">Quote text</p>
+                        <footer th:text="${quote.author}">Author</footer>
+                    </blockquote>
+                </div>
+            </div>
 
-<div th:if="${quotes == null or quotes.isEmpty()}">
-    <p>No quotes found.</p>
-</div>
+            <div th:if="${quotes == null or quotes.isEmpty()}">
+                <p>No quotes found.</p>
+            </div>
 
-<a th:href="@{/view/{language}/quotes(language=${language})}"
-   style="display:inline-block;margin-top:20px;"
-   th:text="${language != null and language.name() == 'UA'} ?
-    '← Назад до генератора цитат' : '← Back to Generator'">← Back to Generator</a>
-</body>
+            <a th:href="@{/view/{language}/quotes(language=${language})}"
+               style="display:inline-block;margin-top:20px;"
+               th:text="${language != null and language.name() == 'UA'} ?
+                '← Назад до генератора цитат' : '← Back to Generator'">
+            </a>
+        </div>
+    </body>
 </html>

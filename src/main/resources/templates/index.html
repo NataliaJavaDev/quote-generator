@@ -1,71 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${language.name() == 'UA'} ? 'Генератор цитат' : 'Quote Generator'">Quote Generator</title>
-    <style>
-        body {
-            font-family: Roboto, sans-serif;
-            margin: 40px;
-            background-color: white;
-            color: green;
-        }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        blockquote {
-            font-size: 1.5em;
-            font-style: italic;
-            margin: 20px 0;
-            padding-left: 20px;
-            border-left: 5px solid #ccc;
-        }
-        footer {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #666;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        select, button, a {
-            padding: 8px 12px;
-            margin-right: 10px;
-            font-size: 1em;
-            text-decoration: none;
-        }
-        a {
-            background-color: #f0f0f0;
-            color: green;
-            border: 1px solid green;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${language.name() == 'UA'} ?
+                'Генератор цитат' : 'Quote Generator'">
+        </title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+        <div th:class="workshop">
+            <h1 th:text="${language.name() == 'UA'} ?
+                    'Генератор цитат' : 'Quote Generator'">
+            </h1>
 
-<h1 th:text="${language.name() == 'UA'} ? 'Генератор цитат' : 'Quote Generator'">Quote Generator</h1>
+            <div th:class="form">
+                <form th:action="@{/view/{language}/quotes/random(language=${language})}"
+                            method="get">
+                    <button type="submit"
+                            th:text="${language.name() == 'UA'} ?
+                            'Згенерувати цитату' : 'Generate quote'">
+                    </button>
+                </form>
+            </div>
 
-<form th:action="@{/view/{language}/quotes/random(language=${language})}" method="get">
-    <button type="submit"
-            th:text="${language.name() == 'UA'} ? 'Згенерувати випадкову цитату' : 'Generate Random Quote'">Generate</button>
-</form>
+            <div th:if="${quote != null}">
+                <blockquote>
+                    <p th:text="${quote.text}">Quote text</p>
+                    <footer th:text="${quote.author}">Author</footer>
+                </blockquote>
+            </div>
 
-<div th:if="${quote != null}">
-    <blockquote>
-        <p th:text="${quote.text}">Quote text</p>
-        <footer th:text="${quote.author}">Author</footer>
-    </blockquote>
-</div>
+            <div>
+                <a th:href="@{/view/{language}/quotes/all_quotes(language=${language})}"
+                   th:text="${language.name() == 'UA'} ?
+                        'Усі цитати' : 'All Quotes'">
+                </a>
 
-<div>
-    <a th:href="@{/view/{language}/quotes/all_quotes(language=${language})}"
-       th:text="${language.name() == 'UA'} ? 'Усі цитати' : 'All Quotes'">All Quotes</a>
-
-    <a th:href="@{/view/{language}/quotes/create(language=${language})}"
-       th:text="${language.name() == 'UA'} ? 'Створити цитату' : 'Create Quote'">Create Quote</a>
-</div>
-
-</body>
+                <a th:href="@{/view/{language}/quotes/create(language=${language})}"
+                   th:text="${language.name() == 'UA'} ?
+                        'Створити цитату' : 'Create Quote'">
+                </a>
+            </div>
+        </div>
+    </body>
 </html>
