@@ -17,8 +17,9 @@ body {
         text-align: center;
         font-size: 2em;
     }
-    button {
-
+    .button-href {
+        display: inline-block;
+        margin: 0 225px;
     }
 }
 

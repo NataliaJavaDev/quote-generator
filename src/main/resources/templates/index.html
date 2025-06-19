@@ -30,7 +30,7 @@
                 </blockquote>
             </div>
 
-            <div>
+            <div th:class="button-href">
                 <a th:href="@{/view/{language}/quotes/all_quotes(language=${language})}"
                    th:text="${language.name() == 'UA'} ?
                         'Усі цитати' : 'All Quotes'">
