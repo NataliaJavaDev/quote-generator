@@ -4,6 +4,16 @@ body {
     font-family: Roboto, sans-serif;
     color: black;
 }
+a {
+    background-color: #f0f0f0;
+    color: blueviolet;
+    border: 1px solid blueviolet;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1em;
+    text-decoration: none;
+}
+
 .workshop {
     display: block;
     vertical-align: center;
@@ -21,18 +31,32 @@ body {
         display: inline-block;
         margin: 0 220px;
     }
-    a {
-        background-color: #f0f0f0;
-        color: blueviolet;
-        border: 1px solid blueviolet;
-        border-radius: 4px;
-        padding: 8px 12px;
-        font-size: 1em;
-        text-decoration: none;
-    }
     .start-form {
         margin: 130px auto;
         width: 400px;
+    }
+}
+
+.workshopAll {
+    display: block;
+    vertical-align: center;
+    margin: 50px auto;
+    width: 700px;
+    height: 1000px;
+    background-color: brown;
+
+    h1 {
+        padding-top: 20px;
+        text-align: center;
+        font-size: 2em;
+    }
+    .button-href {
+        display: inline-block;
+        margin: 0 220px;
+    }
+    .button-href-back {
+        display: inline-block;
+        margin: 0 250px;
     }
 }
 
@@ -67,7 +91,7 @@ blockquote {
         margin-top: 5px;
     }
     button {
-        margin-top: 15px;
+        margin-top: 20px;
         display: inline-block;
         text-align: center;
     }
@@ -86,4 +110,8 @@ button {
     color: white;
     border: none;
 }
-
+.all-quotes {
+    font-size: 0.8em;
+    background-color: aquamarine;
+    margin-bottom: 30px;
+}
