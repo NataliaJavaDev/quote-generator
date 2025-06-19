@@ -27,6 +27,10 @@ body {
         border: 1px solid blueviolet;
         border-radius: 4px;
     }
+    .start-form {
+        margin: 130px auto;
+        width: 400px;
+    }
 }
 
 blockquote {
