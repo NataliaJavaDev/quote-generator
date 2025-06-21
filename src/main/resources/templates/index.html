@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
     <head>
         <meta charset="UTF-8">
         <title>Quote Generator</title>
@@ -10,7 +10,6 @@
             <h1 th:text="${language.name() == 'UA'} ?
                     'Генератор цитат' : 'Quote Generator'">
             </h1>
-
             <div th:class="form">
                 <form th:action="@{/view/{language}/quotes/random(language=${language})}"
                             method="get">
@@ -20,20 +19,17 @@
                     </button>
                 </form>
             </div>
-
             <div th:if="${quote != null}">
                 <blockquote>
                     <p th:text="${quote.text}">Quote text</p>
                     <footer th:text="${quote.author}">Author</footer>
                 </blockquote>
             </div>
-
             <div th:class="button-href">
                 <a th:href="@{/view/{language}/quotes/all_quotes(language=${language})}"
                    th:text="${language.name() == 'UA'} ?
                         'Усі цитати' : 'All Quotes'">
                 </a>
-
                 <a th:href="@{/view/{language}/quotes/create(language=${language})}"
                    th:text="${language.name() == 'UA'} ?
                         'Створити цитату' : 'Create Quote'">

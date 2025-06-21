@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
     <head>
         <meta charset="UTF-8">
         <title>All Quotes</title>
@@ -9,7 +9,6 @@
         <div th:class="workshopAll">
             <h1 th:text="${language != null and language.name() == 'UA'} ?
             'Усі цитати' : 'All quotes'"></h1>
-
             <div th:if="${quotes != null and !quotes.isEmpty()}"
                  th:class="all-quotes">
                 <div th:each="quote : ${quotes}">
@@ -19,11 +18,9 @@
                     </blockquote>
                 </div>
             </div>
-
             <div th:if="${quotes == null or quotes.isEmpty()}">
                 <p>No quotes found.</p>
             </div>
-
             <div th:class="button-href">
                 <a th:if="${currentPage > 0}"
                    th:href="@{/view/{language}/quotes/all_quotes(language=${language},
@@ -36,7 +33,6 @@
                     th:text="${language.name() == 'UA'} ? 'Наступна →' : 'Next →'">
                 </a>
             </div>
-
             <div th:class="button-href-back">
                 <a th:href="@{/view/{language}/quotes(language=${language})}"
                    th:text="${language != null and language.name() == 'UA'} ?

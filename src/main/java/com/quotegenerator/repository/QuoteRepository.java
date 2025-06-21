@@ -1,17 +1,11 @@
 package com.quotegenerator.repository;
 
-import com.quotegenerator.model.Languages;
 import com.quotegenerator.model.Quote;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.domain.*;
+import org.springframework.data.jpa.repository.*;
 import java.util.List;
 
 public interface QuoteRepository extends JpaRepository<Quote, Long> {
-
-    @Query(value = "SELECT * FROM quote ORDER BY RAND() LIMIT 1", nativeQuery = true)
-    Quote findRandomQuote();
 
     List<Quote> findAllByLanguage(String lang);
 
